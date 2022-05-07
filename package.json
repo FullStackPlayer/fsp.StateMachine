@@ -1,0 +1,42 @@
+{
+  "name": "fsp-state-machine",
+  "version": "1.0.0",
+  "description": "A State Machine written in TypeScript, compatible with both Nodejs and Deno.",
+  "main": "./dist/cjs/StateMachine.js",
+  "module": "./dist/esm/StateMachine.js",
+  "typings": "./dist/cjs/StateMachine.d.ts",
+  "scripts": {
+    "prebuild:cjs": "node ./script/prebuild.js",
+    "build:cjs": "tsc -p tsconfig.json",
+    "postbuild:cjs": "node ./script/postbuild.js",
+    "prebuild:esm": "node ./script/prebuild.js",
+    "build:esm": "tsc -p tsconfig-esm.json",
+    "postbuild:esm": "node ./script/postbuild.js",
+    "build:all": "yarn build:cjs && yarn build:esm",
+    "pretest:cjs": "yarn build:all",
+    "test:cjs": "jest ./test/cjs/*.test.js",
+    "test:deno": "deno test -A ./test/deno/*.test.ts",
+    "test:all": "yarn test:cjs && yarn test:deno"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FullStackPlayer/fsp.StateMachine.git"
+  },
+  "keywords": [
+    "typescript",
+    "Deno",
+    "StateMachine"
+  ],
+  "author": "FullStackPlayer",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/FullStackPlayer/fsp.StateMachine",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "files": [
+    "/dist",
+    "/test",
+    "/sample"
+  ]
+}
